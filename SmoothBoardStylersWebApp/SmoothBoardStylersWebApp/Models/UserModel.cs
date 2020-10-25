@@ -13,9 +13,11 @@ namespace SmoothBoardStylersWebApp.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
 
+        public string Username { get; set; }
+
         // For this project we will not make use of password hashing
         public string Password { get; set; }
 
-        public List<string> Roles = new List<string>();
+        public string Role { get; set; }
     }
 }
