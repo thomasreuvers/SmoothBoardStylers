@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmoothBoardStylersWebApp", "SmoothBoardStylersWebApp\SmoothBoardStylersWebApp.csproj", "{38ADAB5D-95CB-46EB-A4CC-511037777733}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38ADAB5D-95CB-46EB-A4CC-511037777733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38ADAB5D-95CB-46EB-A4CC-511037777733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38ADAB5D-95CB-46EB-A4CC-511037777733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38ADAB5D-95CB-46EB-A4CC-511037777733}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6871274-46AB-47D3-AB4B-69243D3F7973}
+	EndGlobalSection
+EndGlobal
