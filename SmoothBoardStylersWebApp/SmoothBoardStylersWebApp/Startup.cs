@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using SmoothBoardStylersWebApp.Models;
 using SmoothBoardStylersWebApp.Services;
 
 namespace SmoothBoardStylersWebApp
@@ -27,6 +29,10 @@ namespace SmoothBoardStylersWebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // Configure Database
+            services.AddDbContext<SmoothBoardContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SmoothBoardContext")));
 
             // Enable cookie authentication
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();

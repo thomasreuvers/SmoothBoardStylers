@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
+namespace SmoothBoardStylersWebApp.Models
+{
+    public class SmoothBoardContext : DbContext
+    {
+        public SmoothBoardContext(DbContextOptions<SmoothBoardContext> options)
+            : base(options)
+        { }
+    }
+}
