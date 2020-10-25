@@ -13,5 +13,6 @@ namespace SmoothBoardStylersWebApp.Models
         { }
 
         public DbSet<UserModel> Users { get; set; }
+        public DbSet<SubscriberModel> Subscribers { get; set; }
     }
 }
