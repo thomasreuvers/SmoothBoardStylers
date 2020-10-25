@@ -11,5 +11,7 @@ namespace SmoothBoardStylersWebApp.Models
         public SmoothBoardContext(DbContextOptions<SmoothBoardContext> options)
             : base(options)
         { }
+
+        public DbSet<UserModel> Users { get; set; }
     }
 }
