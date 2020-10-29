@@ -58,11 +58,5 @@ namespace SmoothBoardStylersWebApp.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
-
-
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }
