@@ -29,28 +29,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="pad-bottom-3">Ik wil de nieuwsbrief ontvangen!</h2>
-                    <form asp-action="AddSubscriber" asp-controller="Subscriber">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label asp-for="Firstname"></label>
-                                <input asp-for="Firstname" class="form-control"/>
+                    @if (TempData.ContainsKey("addSubscriber") && (bool) TempData.FirstOrDefault(x => x.Key == "addSubscriber").Value)
+                    {
+                        <h2>Uw bent succesvol toegevoegd aan de lijst!</h2>
+                    }
+                    else
+                    {
+                        <h2 class="pad-bottom-3">Ik wil de nieuwsbrief ontvangen!</h2>
+                        <form asp-action="AddSubscriber" asp-controller="Subscriber">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Firstname"></label>
+                                    <input asp-for="Firstname" class="form-control"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label asp-for="Lastname"></label>
+                                    <input asp-for="Lastname" class="form-control"/>
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label asp-for="Lastname"></label>
-                                <input asp-for="Lastname" class="form-control"/>
+                            <div class="form-group">
+                                <label asp-for="EmailAddress"></label>
+                                <input asp-for="EmailAddress" class="form-control"/>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="EmailAddress"></label>
-                            <input asp-for="EmailAddress" class="form-control"/>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Sex"></label>
-                            <select asp-for="Sex" class="form-control" asp-items="Html.GetEnumSelectList<Sex>()"></select>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Ja, ik wil de gratis nieuwsbrief ontvangen</button>
-                    </form>
+                            <div class="form-group">
+                                <label asp-for="Sex"></label>
+                                <select asp-for="Sex" class="form-control" asp-items="Html.GetEnumSelectList<Sex>()"></select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ja, ik wil de gratis nieuwsbrief ontvangen</button>
+                        </form>
+                    }
                 </div>
             </div>
         </div>
