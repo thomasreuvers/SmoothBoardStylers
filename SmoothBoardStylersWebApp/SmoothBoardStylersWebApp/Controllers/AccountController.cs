@@ -49,7 +49,7 @@ namespace SmoothBoardStylersWebApp.Controllers
             var principle = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principle);
 
-            // Redirect to adminpanel
+            // Redirect to Admin panel
             return RedirectToAction("Index", "Admin");
         }
 
