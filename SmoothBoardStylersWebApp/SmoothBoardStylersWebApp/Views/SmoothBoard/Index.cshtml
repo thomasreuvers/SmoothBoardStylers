@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<SmoothBoardModel>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var smoothBoard in Model)
+                {
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                        <img src="~/uploads/@smoothBoard.ImageUrl"/>
+                        <p>@smoothBoard.Model - $@smoothBoard.Price</p>
+                        <p>@smoothBoard.Description</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <h1>Geen smoothboards op voorraad op het moment!</h1>
+            }
+
+        </div>
+    </div>
+</div>

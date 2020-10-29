@@ -11,9 +11,17 @@ namespace SmoothBoardStylersWebApp.Controllers
 {
     public class SmoothBoardController : Controller
     {
+        private readonly SmoothBoardContext _db;
+
+        public SmoothBoardController(SmoothBoardContext db)
+        {
+            _db = db;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var smoothBoards = _db.SmoothBoards.ToList();
+            return View(smoothBoards);
         }
     }
 }
