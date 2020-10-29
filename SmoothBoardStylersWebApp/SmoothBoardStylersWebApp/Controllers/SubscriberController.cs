@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SmoothBoardStylersWebApp.ExtensionMethods;
 using SmoothBoardStylersWebApp.Models;
 using SmoothBoardStylersWebApp.Services;
 
@@ -33,7 +34,7 @@ namespace SmoothBoardStylersWebApp.Controllers
             }
 
             // Add new subscriber to database
-            var key = CreateKey(8);
+            var key = "".CreateKey(8);
             var subscriber = new SubscriberModel
             {
                 EmailAddress = model.EmailAddress,
@@ -73,18 +74,6 @@ namespace SmoothBoardStylersWebApp.Controllers
             _mailService.SendMailAsync(subscriber.EmailAddress, "Uitschrijven nieuwsbrief", $"Jammer dat u weg gaat {subscriber.Firstname}!");
 
             return RedirectToAction("Index", "Home");
-        }
-
-
-        /*
-         * We use random because it's easy and the app is not security focused
-         */
-        private static string CreateKey(int length)
-        {
-            var rand = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[rand.Next(s.Length)]).ToArray());
         }
     }
 }

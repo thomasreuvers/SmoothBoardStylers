@@ -19,5 +19,19 @@ namespace SmoothBoardStylersWebApp.ExtensionMethods
             return acceptedActions.Contains(currentAction) && acceptedControllers.Contains(currentController) ?
                 cssClass : String.Empty;
         }
+
+        /*
+         * We use random because it's easy and the app is not security focused
+         */
+        public static string CreateKey(this string str, int length)
+        {
+            var rand = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[rand.Next(s.Length)]).ToArray());
+        }
     }
+
+
+
 }
