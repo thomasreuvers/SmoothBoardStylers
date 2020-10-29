@@ -23,7 +23,7 @@ namespace SmoothBoardStylersWebApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult FrequentlyAskedQuestions()
         {
             return View();
         }

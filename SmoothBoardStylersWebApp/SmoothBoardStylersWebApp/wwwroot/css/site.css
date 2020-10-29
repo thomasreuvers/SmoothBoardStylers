@@ -1,5 +1,19 @@
 ﻿/* Custom styling
 ------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+}
+main {
+    padding-top: 3em;
+    min-height: 100vh;
+    height: auto;
+}
+
 .navbar {
     background: #3066BE;
 }
@@ -33,4 +47,9 @@
 
 .pad-bottom-3 {
     padding: 0 0 1em 0;
+}
+
+.selected {
+    font-weight: bold;
+    color: white;
 }

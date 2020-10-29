@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SmoothBoardStylersWebApp.ExtensionMethods
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -30,16 +31,22 @@
 
                     <!-- Links -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Smoothboards</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FAQ</a>
-                        </li>
-
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item"><a class="nav-link" asp-action="Logout" asp-controller="Account">Logout</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link @Html.IsSelected(actions: "Index", controllers: "Home")" asp-action="Index" asp-controller="Home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @Html.IsSelected(actions: "Index", controllers: "SmoothBoard")" asp-action="Index" asp-controller="SmoothBoard">Smoothboards</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @Html.IsSelected(actions: "FrequentlyAskedQuestions", controllers: "Home")" asp-action="FrequentlyAskedQuestions" asp-controller="Home">FAQ</a>
+                            </li>
+                        }
                     </ul>
 
                 </div>
@@ -50,81 +57,83 @@
 
     </header>
 
-    @RenderBody()
+    <!--Main Layout-->
+    <main>
+        @RenderBody()
+    </main>
 
-    <!--Footer-->
-<footer class="page-footer pt-4">
+        <!--Footer-->
+        <footer class="page-footer pt-4">
 
-    <!-- Footer Links -->
-    <div class="container-fluid text-center text-md-left">
+            <!-- Footer Links -->
+            <div class="container-fluid text-center text-md-left">
 
-        <!-- Grid row -->
-        <div class="row">
+                <!-- Grid row -->
+                <div class="row">
 
 
-            <!-- Grid column -->
-            <div class="col-md-6 mb-md-0 mb-3 text-center">
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-md-0 mb-3 text-center">
 
-                <!-- Links -->
-                <h5 class="text-uppercase">Contact</h5>
+                        <!-- Links -->
+                        <h5 class="text-uppercase">Contact</h5>
 
-                <ul class="list-unstyled">
-                    <li>
-                        <p>Example adress</p>
-                    </li>
-                    <li>
-                        <p>+31 06 12345678</p>
-                    </li>
-                    <li>
-                        <p>seanjensen@example.com</p>
-                    </li>
-                </ul>
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>Example adress</p>
+                            </li>
+                            <li>
+                                <p>+31 06 12345678</p>
+                            </li>
+                            <li>
+                                <p>seanjensen@example.com</p>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-6 mb-md-0 mb-3 text-center">
+
+                        <!-- Links -->
+                        <h5 class="text-uppercase">Pages</h5>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="@Html.IsSelected(actions: "Index", controllers: "Home")" asp-action="Index" asp-controller="Home">Home</a>
+                            </li>
+                            <li>
+                                <a class="@Html.IsSelected(actions: "Index", controllers: "SmoothBoard")" asp-action="Index" asp-controller="SmoothBoard">Smoothboards</a>
+                            </li>
+                            <li>
+                                <a class="@Html.IsSelected(actions: "FrequentlyAskedQuestions", controllers: "Home")" asp-action="FrequentlyAskedQuestions" asp-controller="Home">FAQ</a>
+                            </li>
+                            <li>
+                                <a class="@Html.IsSelected(actions: "Login", controllers: "Account")" asp-action="Login" asp-controller="Account">Admin</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
 
             </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-6 mb-md-0 mb-3 text-center">
-
-                <!-- Links -->
-                <h5 class="text-uppercase">Pages</h5>
-
-                <ul class="list-unstyled">
-                    <li>
-                        <a asp-action="Index" asp-controller="Home">Home</a>
-                    </li>
-                    <li>
-                        <a asp-action="Index" asp-controller="Home">Smoothboards</a>
-                    </li>
-                    <li>
-                        <a asp-action="Index" asp-controller="Home">FAQ</a>
-                    </li>
-                    <li>
-                        <a asp-action="Login" asp-controller="Account">Admin</a>
-                    </li>
-                </ul>
-
+            <!-- Footer Links -->
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                © 2020 Copyright:
+                Smoothboard Stylers
             </div>
-            <!-- Grid column -->
+            <!-- Copyright -->
 
-        </div>
-        <!-- Grid row -->
+        </footer>
+        <!-- Footer -->
 
-    </div>
-    <!-- Footer Links -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        Smoothboard Stylers
-    </div>
-    <!-- Copyright -->
-
-</footer>
-<!-- Footer -->
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @RenderSection("Scripts", required: false)
 </body>
 </html>
