@@ -357,3 +357,5 @@ appsettings.json
 appsettings.Development.json
 
 SmoothBoardStylersWebApp/SmoothBoardStylersWebApp/wwwroot/assets/images/579d43736e4b312e3f44be0eacbf638c.jpg
+*.png
+*.jpg
