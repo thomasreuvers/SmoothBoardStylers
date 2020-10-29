@@ -8,38 +8,120 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+
+    <!--Main Navigation-->
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SmoothBoardStylersWebApp</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+
+        <!--NavBar-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid">
+
+                <!--Navbar brand-->
+                <a class="navbar-brand" href="#">Smoothboard Stylers</a>
+
+                <!--Collapse button-->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="False" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - SmoothBoardStylersWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <!--Collapsible content-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Links -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Smoothboards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FAQ</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+    @RenderBody()
+
+    <!--Footer-->
+<footer class="page-footer pt-4">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+
+            <!-- Grid column -->
+            <div class="col-md-6 mb-md-0 mb-3 text-center">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Contact</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <p>Example adress</p>
+                    </li>
+                    <li>
+                        <p>+31 06 12345678</p>
+                    </li>
+                    <li>
+                        <p>seanjensen@example.com</p>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-6 mb-md-0 mb-3 text-center">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Pages</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">Home</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">Smoothboards</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Home">FAQ</a>
+                    </li>
+                    <li>
+                        <a asp-action="Login" asp-controller="Account">Admin</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
         </div>
-    </footer>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        Smoothboard Stylers
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
