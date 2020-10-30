@@ -11,6 +11,9 @@
                         <img src="~/uploads/@smoothBoard.ImageUrl"/>
                         <p>@smoothBoard.Model - $@smoothBoard.Price</p>
                         <p>@smoothBoard.Description</p>
+                        <button type="button" class="btn btn-primary open-modal" data-toggle="modal" data-target="#formModal" data-smoothboardmodel="@smoothBoard.Model">
+                            Meer informatie
+                        </button>
                     </div>
                 }
             }
@@ -21,4 +24,29 @@
 
         </div>
     </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <form asp-action="MoreInformation">
+              <div class="modal-body">
+
+                  <input type="hidden" id="smooth-board-id" name="ModelName" />
+                  <input name="PhoneNumber" />
+                  <input name="Name" />
+              </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Verzenden</button>
+          </div>
+          </form>
+    </div>
+  </div>
 </div>

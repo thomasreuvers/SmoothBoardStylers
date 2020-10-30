@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace SmoothBoardStylersWebApp.Services
@@ -34,6 +36,19 @@ namespace SmoothBoardStylersWebApp.Services
             {
                 Subject = subject,
                 Body = message
+            };
+
+            await _mailClient.SendMailAsync(mailMessage);
+        }
+
+        public async void SendSelfMailAsync(string subject, string message)
+        {
+            using var mailMessage = new MailMessage(_fromAddress, _fromAddress)
+            {
+                Subject = subject,
+                IsBodyHtml = true,
+                Body = message,
+                BodyEncoding = Encoding.UTF8
             };
 
             await _mailClient.SendMailAsync(mailMessage);

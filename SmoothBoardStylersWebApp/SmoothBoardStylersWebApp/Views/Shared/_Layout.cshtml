@@ -135,5 +135,15 @@
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
         @RenderSection("Scripts", required: false)
+
+        <script type="text/javascript">
+            $('.open-modal').on('click',
+                function() {
+                    var t = $(this);
+                    var smoothBoardId = t.data('smoothboardmodel');
+
+                    $('#smooth-board-id').val(smoothBoardId);
+                });
+        </script>
 </body>
 </html>
