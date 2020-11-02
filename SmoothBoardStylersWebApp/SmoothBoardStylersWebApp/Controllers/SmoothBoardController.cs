@@ -28,7 +28,7 @@ namespace SmoothBoardStylersWebApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MoreInformation(string ModelName, string Name, string PhoneNumber)
+        public IActionResult MoreInformation(string ModelName, string Name, string PhoneNumber)
         {
             if (!string.IsNullOrEmpty(ModelName) && !string.IsNullOrEmpty(PhoneNumber) && !string.IsNullOrEmpty(Name))
             {
