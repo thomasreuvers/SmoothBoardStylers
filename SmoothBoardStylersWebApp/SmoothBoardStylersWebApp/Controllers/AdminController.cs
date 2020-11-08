@@ -38,6 +38,11 @@ namespace SmoothBoardStylersWebApp.Controllers
                 return RedirectToAction("Index", "Admin");
             }
 
+            if (!Directory.Exists(Path.Combine(_hostEnvironment.WebRootPath, "uploads")))
+            {
+                Directory.CreateDirectory(Path.Combine(_hostEnvironment.WebRootPath, "uploads"));
+            }
+
             var fileName = GetUniqueFileName(viewModel.SmoothBoardImage.FileName) ;
             var filePath = Path.Combine(Path.Combine(_hostEnvironment.WebRootPath, "uploads"), fileName);
             await viewModel.SmoothBoardImage.CopyToAsync(new FileStream(filePath, FileMode.Create));
